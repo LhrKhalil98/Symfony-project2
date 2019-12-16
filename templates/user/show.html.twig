@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+  
+{% block body %}
+    <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="{{ path('home') }}">Home</a>
+            <span class="breadcrumb-item active">Profil</span>
+        </div>
+    </div>
+     </div>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Profil </h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+    <table class="table">
+        <tbody>
+             <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+    
+            <tr>
+                <th>CIN</th>
+                <td>{{ user.CIN }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ user.adress }}</td>
+            </tr>
+        </tbody>
+    </table>
+         
+    <a href="{{ path('modifier', {'id': app.user.id}) }}"> <button class="btn black">Modifier votre donnes</button>
+    <a href="{{ path('profil_commande', {'id': app.user.id}) }}"> <button class="btn black">Votres Commandes</button>
+
+</a>
+        </div>
+    </section>
+
+
+{% endblock %}

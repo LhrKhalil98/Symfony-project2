@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription {% endblock %}
+
+{% block body %} <section class="static about-sec">
+               <div class="container">
+                   <h1>Commandes</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>date</th>
+                <th>titre</th>
+                <th>Cin Client</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.getDate|date("m/d/Y")}}</td>
+                <td>{{ commande.livre.getTitre()}}</td>
+               <td>{{ commande.client.getCIN()}}</td>
+
+                <td>
+                <div class="row">
+         
+
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div> 
+</section>
+{% endblock %}

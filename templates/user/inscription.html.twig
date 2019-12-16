@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription {% endblock %}
+
+{% block body %}
+<div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.html">Home</a>
+            <span class="breadcrumb-item active">Register</span>
+        </div>
+    </div>
+<section class="static ">
+        <div class="container">
+            <h1>My Account / REgister</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's printer took a galley of type and scrambled it to make a type specimen book. It has survived not only fiveLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem </p>
+            <div class="form">
+
+    {{ form_start(form) }}
+                        <div class="row">
+
+    <div class="col-md-4"> {{ form_row(form.nom) }} <span class="required-star">*</span></div>
+
+     <div class="col-md-4">{{ form_row(form.prenom) }}<span class="required-star">*</span></div>
+     <div class="col-md-4">{{ form_row(form.CIN) }}<span class="required-star">*</span></div>
+     <div class="col-md-4">{{ form_row(form.email) }}<span class="required-star">*</span></div>
+    <div class="col-md-4"> {{ form_row(form.password) }}<span class="required-star">*</span></div>
+     <div class="col-md-4">{{ form_row(form.adress) }}<span class="required-star">*</span></div>
+
+    <button class="btn">Inscrire </button>
+          </div>
+
+     {{ form_end(form) }}
+
+      </div>
+        </div>
+    </section>
+{% endblock %}

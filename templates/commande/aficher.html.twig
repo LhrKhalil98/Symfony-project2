@@ -1,0 +1,49 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Commandes {% endblock %}
+
+{% block body %}
+ <section class="static about-sec">
+               <div class="container">
+                   <h1>Commandes</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>date</th>
+                <th>titre</th>
+                <th>Cin Client</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.id }}</td>
+                <td>{{ commande.getDate|date("m/d/Y")}}</td>
+                <td>{{ commande.livre.getTitre()}}</td>
+               <td>{{ commande.client.getCIN()}}</td>
+
+                <td>
+                <div class="row">
+           <form method="post" action="{{ path('commmande_delete', {'id': commande.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+            <input type="hidden" name="_method" value="DELETE">
+         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commande.id) }}">
+            <button class="btn  btn-danger">Delete</button>
+             </form>
+
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div> 
+</section>
+{% endblock %}

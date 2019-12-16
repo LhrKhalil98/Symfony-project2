@@ -1,0 +1,32 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Inscription {% endblock %}
+
+{% block body %}
+
+<section class="static about-sec">
+               <div class="container">
+
+            <h1>Ajouter Auteur</h1>
+           <br>
+           
+            <div class="form ">
+
+    {{ form_start(form) }}
+        <div class="row">
+
+    
+     <div class="form-group">{{ form_row(form.nom_prenom) }}<span </div>
+    
+    
+<button type="submit" class="btn btn-success">Ajouter</button>
+
+          </div>
+
+      </div>
+     {{ form_end(form) }}
+
+      
+        </div>
+    </section>
+    {% endblock %}

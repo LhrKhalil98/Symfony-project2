@@ -1,0 +1,38 @@
+{% extends 'adminnbase.html.twig' %}
+
+{% block title %}Modifier Livre {% endblock %}
+
+{% block body %}
+
+<section class="static about-sec">
+               <div class="container">
+
+            <h1>Modifier Livre</h1>
+           <br>
+           
+            <div class="form ">
+
+    {{ form_start(form) }}
+        <div class="row">
+
+    
+     <div class="form-group">{{ form_row(form.titre) }}<span </div>
+     <div class="form-group">{{ form_row(form.edition) }}<span </div>
+     <div class="form-group">{{ form_row(form.num_edition) }}<span </div>
+     <div class="form-group">{{ form_row(form.prix) }}<span </div>
+     <div class="form-group">{{ form_row(form.description) }}<span </div>
+     <div class="form-group">{{ form_row(form.categorie) }}<span </div>
+     <div class="form-group">{{ form_row(form.auteur) }}<span </div>
+
+    
+<button type="submit" class="btn btn-success">Modifier</button>
+
+          </div>
+
+      </div>
+     {{ form_end(form) }}
+
+      
+        </div>
+    </section>
+    {% endblock %}

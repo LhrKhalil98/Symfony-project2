@@ -1,0 +1,46 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+ <section class="static about-sec">
+               <div class="container">
+                   <h1>Auteurs</h1>
+
+      <a href="{{ path('auteur_new')}}"><button type="button" class="btn btn-primary">Ajouter Autre Auteur </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_prenom</th>
+                <th colspan="2">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteurs %}
+            <tr>
+                <td>{{ auteur.id }}</td>
+                <td>{{ auteur.nomPrenom }}</td>
+                <td>
+                <div class="row">
+                <form method="post" action="{{ path('auteur_delete', {'id': auteur.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ auteur.id) }}">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+
+                    <a href="{{ path('auteur_edit' {'id': auteur.id} ) }}"><button type="button" class="btn btn-info">Modifier</button></a>
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div> 
+</section>
+{% endblock %}

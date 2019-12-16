@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BookStore{% endblock %}
+
+{% block body  %}
+
+
+
+
+  <div class="breadcrumb">
+        <div class="container">
+            <a class="breadcrumb-item" href="index.html">Home</a>
+            <span class="breadcrumb-item active">Products</span>
+        </div>
+    </div>
+   
+            
+        
+            
+ 
+    <section class="product-sec">
+        <div class="container">
+            <h1>{{livre.titre}}</h1>
+            <div class="row">
+                <div class="col-md-6 slider-sec">
+                    <!-- main slider carousel -->
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="../images/{{livre.imageUrl}}" class="img-fluid">
+                            </div>
+                        </div>
+            
+                    </div>
+                    <!--/main slider carousel-->
+                </div>
+                <div class="col-md-6 slider-content">
+                    <p>{{livre.description}} </p>
+                    <ul>
+                     <li>
+                            <span class="name">Auteur</span><span class="clm">:{{livre.auteur.getNomPrenom()}}</span>
+                        </li>
+                        <li>
+                            <span class="name">Categorie</span><span class="clm">:{{livre.categorie.getNomCategorie()}}</span>
+                        </li>
+                        <li>
+                            <span class="name">Prix</span><span class="clm">:</span>
+                            <span class="price final">{{livre.prix}}$</span>
+                        </li>
+                    </ul>
+                    <div class="btn-sec">
+                      <a href="{{path('commande' ,{'id': livre.id} )}}">  <button class="btn black">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+{% endblock %}
